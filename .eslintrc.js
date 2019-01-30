@@ -26,6 +26,8 @@ module.exports = {
     'no-multiple-empty-lines':'off',
     'no-trailing-spaces':'off',
     "indent":'off',
+    "no-tabs":"off",
+    "no-mixed-spaces-and-tabs":"off",
     "skipBlankLines": true,
     "ignoreComments": true,
     // allow debugger during development

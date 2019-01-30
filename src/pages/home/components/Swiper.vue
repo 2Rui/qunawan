@@ -35,13 +35,13 @@ export default {
 .wrap >>>.swiper-pagination-bullet-active
   background:#fff
 .wrap
- overflow:hidden
- width:100%
- height:0
- padding-bottom:31.25%
- background :#eee
-  .swiper-img
     width:100%
+    overflow:hidden
+    height:0
+    padding-bottom:31.25%
+    background:#eee
+	.swiper-img
+	 	width:100%
 </style>
 
 
