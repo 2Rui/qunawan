@@ -25,6 +25,7 @@ module.exports = {
     'generator-star-spacing': 'off',
     'no-multiple-empty-lines':'off',
     'no-trailing-spaces':'off',
+    "indent":'off',
     "skipBlankLines": true,
     "ignoreComments": true,
     // allow debugger during development
