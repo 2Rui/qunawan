@@ -16,74 +16,21 @@
 <script>
 export default { 
   name: 'HomeIcons',
+  props: {
+    icons: Array
+  },
   data () {
       return {
           swiperOption: {
 
-          },
-          iconlist: [{
-        'id': '0001',
-        'imgUrl': 'http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png',
-        'desc': '景点门票'
-      },
-      {
-        'id': '0002',
-        'imgUrl': 'http://img1.qunarzz.com/piao/fusion/1711/df/86cbcfc533330d02.png',
-        'desc': '滑雪季'
-      },
-      {
-        'id': '0003',
-        'imgUrl': 'http://img1.qunarzz.com/piao/fusion/1710/a6/83f636bd75ae6302.png',
-        'desc': '泡温泉'
-      },
-      {
-        'id': '0004',
-        'imgUrl': 'http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png',
-        'desc': '景点门票'
-      },
-      {
-        'id': '0005',
-        'imgUrl': 'http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png',
-        'desc': '景点门票'
-      },
-      {
-        'id': '0006',
-        'imgUrl': 'http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png',
-        'desc': '景点门票'
-      },
-      {
-        'id': '0007',
-        'imgUrl': 'http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png',
-        'desc': '景点门票'
-      },
-      {
-        'id': '0008',
-        'imgUrl': 'http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png',
-        'desc': '景点门票'
-      },
-      {
-        'id': '0009',
-        'imgUrl': 'http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png',
-        'desc': '景点门票'
-      },
-       {
-        'id': '10',
-        'imgUrl': 'http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png',
-        'desc': '景点门票'
-      },
-       {
-        'id': '11',
-        'imgUrl': 'http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png',
-        'desc': '景点门票'
-      }
-      ]
+          }
       }
   },
   computed: {
      newList () {
          var newArray = []
           // 处理数据，解析为两个数组，分别为第一页 第二页
-          this.iconlist.forEach((item, index) => {
+          this.icons.forEach((item, index) => {
              var page = Math.floor(index / 8)
              if (!newArray[page]) {
                 newArray[page] = []

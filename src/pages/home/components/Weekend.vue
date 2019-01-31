@@ -1,11 +1,13 @@
 <template>
     <div class="cont">
         <div class="title">周末去那玩</div>
-        <div class="item">
-            <img src="http://img1.qunarzz.com/sight/source/1510/6e/1ea71e2f04e.jpg_r_640x214_aa6f091d.jpg" class="item-img"/>
+        <div class="item" v-for="item of week" :key="item.od">
+            <div class="img-box">
+             <img :src="item.imgUrl" class="item-img"/>
+            </div>
             <div class="info">
-            <p class="item-title">北京温泉排行榜</p>
-            <p class="item-desc">细数北京温泉，温暖你的冬天</p>
+            <p class="item-title">{{item.title}}</p>
+            <p class="item-desc">{{item.desc}}</p>
             </div>
            
         </div>
@@ -14,7 +16,8 @@
 
 <script>
 export default {
-  name: 'HomeWeekend'
+  name: 'HomeWeekend',
+  props: ['week']
 }
 </script>
 
@@ -31,8 +34,13 @@ export default {
         display:flex
         flex-direction :column
         justify-content :center
-        .item-img
+        .img-box
            width:100%
+           height:0
+           overflow:hidden
+           padding-bottom:37.05%
+           .item-img
+                width:100%
         .info
            padding:.2rem
            .item-title
