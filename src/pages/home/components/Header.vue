@@ -6,9 +6,9 @@
         <div class="header-input">
             <span class="iconfont icon">&#xe600;</span>
             输入城市游玩主题</div>
-        <div class="header-right">{{city}}
+        <router-link to="/city" tag="div" class="header-right">{{city}}
             <span class="iconfont icon">&#xe64a;</span>
-        </div>
+        </router-link>
     </div>
 </template>
 
@@ -25,7 +25,8 @@ export default {
 @import '~@styles/varibles.styl'
 .header-cont
     width:100%
-    line-height:.86rem
+    line-height:$headerHeight
+    height:$headerHeight
     background:#eee
     display:flex
     felx-direction:row
