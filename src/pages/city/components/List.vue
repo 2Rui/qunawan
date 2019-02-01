@@ -4,20 +4,20 @@
        <div class="area">
           <div class="title border-topbottom">您的位置</div>
           <div class="cont">
-            <div class="item">北京</div>
+            <div class="item">{{this.$store.state.city}}</div>
           </div>
        </div>
        <div class="area">
           <div class="title border-topbottom">热门城市</div>
           <div class="cont">
-            <div class="item" v-for="item of hot" :key="item.id">{{item.name}}</div>
+            <div class="item" v-for="item of hot" :key="item.id" @click="tapCity(item.name)">{{item.name}}</div>
           </div>
        </div>
        <div>
        <div class="area" v-for="(value,key,index) of city" :key="index">
           <div class="title border-topbottom" :ref="key">{{key}}</div>
           <div class="cont">
-              <div class="list-item border-bottom" v-for="item of value" :key="item.id">{{item.name}}</div>
+              <div class="list-item border-bottom" v-for="item of value" :key="item.id" @click="tapCity(item.name)">{{item.name}}</div>
           </div>
        </div>
        </div>
@@ -48,6 +48,15 @@ export default {
       city () {
           //  city发生变化，执行的函数
           console.log('监听到city发生变化了')
+      }
+  },
+  methods: {
+      tapCity (city) {
+          // 通过dispatch 方法调用actions
+          // this.$store.dispatch('changeCity', city)
+          // 因为没有异步方法，组件可以直接用commit方法调用mutations
+          this.$store.commit('changeCity', city)
+          this.$router.push('/')
       }
   }
 }

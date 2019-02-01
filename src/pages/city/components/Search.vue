@@ -5,7 +5,7 @@
     </div>
     <div class="search-cont" ref="search" v-show="isSearch">
       <ul>
-        <li v-for="item of result" :key="item.id" class="search-item border-bottomm">{{item.name}}</li>
+        <li v-for="item of result" :key="item.id" class="search-item border-bottomm" @click="tapCity(item.name)">{{item.name}}</li>
         <li class="search-item border-bottom" v-show="!result.length">没有检索到数据</li>
       </ul>
     </div>
@@ -65,7 +65,14 @@ export default {
       }
       this.result = result
       this.isSearch = true
-    }
+    },
+    tapCity (city) {
+          // 通过dispatch 方法调用actions
+          // this.$store.dispatch('changeCity', city)
+          // 因为没有异步方法，组件可以直接用commit方法调用mutations
+          this.$store.commit('changeCity', city)
+          this.$router.push('/')
+      }
   }
 }
 </script>
