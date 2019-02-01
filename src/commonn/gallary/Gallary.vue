@@ -16,8 +16,10 @@ export default {
   name: 'Gallary',
   props: {
       swiper: {
-          type: Array,
-          default: ['http://img1.qunarzz.com/sight/p0/201404/23/04b92c99462687fa1ba45c1b5ba4ad77.jpg_800x800_70debc93.jpg']
+          type: Array, // 注意 props的属性是数组或者对象 default默认值要写成函数return
+          default () {
+					return ['http://img1.qunarzz.com/sight/p0/201404/23/04b92c99462687fa1ba45c1b5ba4ad77.jpg_800x800_70debc93.jpg']
+				}
       }
   },
   data () {

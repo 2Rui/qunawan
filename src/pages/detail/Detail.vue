@@ -1,16 +1,20 @@
 <template>
     <div>
+        <detail-header></detail-header>
         <detail-banner :swipers="imgs"></detail-banner>
+        <div class="cont"></div>
     </div>
 </template>
 
 <script>
 import DetailBanner from './components/Banner'
+import DetailHeader from './components/Header'
 import axios from 'axios'
 export default {
   name: 'Detail',
   components: {
-      DetailBanner
+      DetailBanner,
+      DetailHeader
   },
   data () {
       return {
@@ -34,6 +38,9 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-
+   .cont
+    width:100%
+    height:70rem
+    background:pink
 </style>
 
