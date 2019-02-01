@@ -1,7 +1,7 @@
 <template>
     <div class="alphabet">
-        <div class="cont">
-          <div v-for="(item,index) of alps" :key="index" class="item" @click="onClick">{{item}}</div>
+        <div class="cont" @touchstart="onStart" @touchmove="onMove" @touchend="onEnd">
+          <div v-for="(item,index) of alps" :key="index" class="item" @click="onClick" :ref="item">{{item}}</div>
         </div>
     </div>
 </template>
@@ -12,11 +12,42 @@ export default {
   props: {
       alps: Array
   },
+  data () {
+      return {
+          isStart: false,
+          timer: null,
+          startY: 0
+      }
+  },
+  updated () { // 页面数据更新 同时已经渲染到页面上
+    this.startY = this.$refs['A'][0].offsetTop
+  },
   methods: {
       onClick (e) {
           // 兄弟组件之间传值  使用bus
-          console.log(e.target.innerText)
-          this.bus.$emit('clickApl',e.target.innerText)
+          this.bus.$emit('clickApl', e.target.innerText)
+      },
+      onStart () {
+         this.isStart = true
+      },
+      onMove (e) {
+          if (this.isStart) {
+             if (this.timer) {
+                 clearTimeout(this.timer)
+             }
+             // 定时器 
+             this.timer = setTimeout(() => {
+                var moveY = e.touches[0].clientY - this.startY - 79
+                var now = Math.floor(moveY / 20)
+                console.log(now)
+                if (now >= 0 && now < this.alps.length) {
+                  this.bus.$emit('clickApl', this.alps[now])
+               }
+             }, 16)
+          }
+      },
+      onEnd () {
+        this.isStart = false
       }
   }
 }

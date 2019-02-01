@@ -36,14 +36,19 @@ export default {
   mounted () {
       // document.querySelector('.container')
       this.scroll = new BScroll(this.$refs.container)
-      console.log(this.bus)
       // 监听到兄弟传来的事件
       this.bus.$on('clickApl', (val) => {
-          console.log(val)
-          console.log(this.$refs)
+          console.log(this.$refs) // 是个对象 当前vue实例上的所有加有ref的dom项
+          // 通过循环加上的ref每一项是数组 如this.$refs[A] 是是一个数组
           const elem = this.$refs[val][0]
            this.scroll.scrollToElement(elem)
       })
+  },
+  watch: {
+      city () {
+          //  city发生变化，执行的函数
+          console.log('监听到city发生变化了')
+      }
   }
 }
 </script>
