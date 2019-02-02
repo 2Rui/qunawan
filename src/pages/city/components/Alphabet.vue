@@ -1,6 +1,6 @@
 <template>
     <div class="alphabet">
-        <div class="cont" @touchstart="onStart" @touchmove="onMove" @touchend="onEnd">
+        <div class="cont" @touchstart.prevent="onStart" @touchmove="onMove" @touchend="onEnd">
           <div v-for="(item,index) of alps" :key="index" class="item" @click="onClick" :ref="item">{{item}}</div>
         </div>
     </div>

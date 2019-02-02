@@ -28,6 +28,7 @@ export default {
   mounted () {
     // 搜索区域的显示部分 要用v-show ，把dom渲染完成，但是隐藏起来 这样scroll不会报错
     // 组件挂在到页面，渲染完成调用的函数
+    console.log('search的mounted')
      this.scroll = new Bscroll(this.$refs.search)
   },
   // updated () {

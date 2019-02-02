@@ -57,6 +57,7 @@ export default {
           // this.$store.dispatch('changeCity', city)
           // 因为没有异步方法，组件可以直接用commit方法调用mutations
           this.$store.commit('changeCity', city)
+          console.log(city)
           this.$router.push('/')
       }
   }

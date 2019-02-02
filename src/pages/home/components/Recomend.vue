@@ -5,7 +5,7 @@
             <router-link tag="div" :to="'/detail/'+item.id" class="item border-bottom" v-for="item of reco" :key="item.id">
                     <img :src="item.imgUrl" class="img-box"/>
                 <div class="right">
-                    <p class="right-title">{{item.title+';'+item.id}}</p>
+                    <p class="right-title">{{item.title}}</p>
                     <p class="desc">{{item.desc}}</p>
                     <button>详情</button>
                 </div>
