@@ -21,5 +21,9 @@ export default new Router({
       name: 'Detail',
       component: Detail
     }
-  ]
+  ],
+  // 路由实例的一些方法
+  scrollBehavior (to, from, savedPosition) { // 解决拖动时多个页面互相影响的问题当换到新路由，想要页面滚到顶部
+    return { x: 0, y: 0 }
+   }
 })

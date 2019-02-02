@@ -24,7 +24,7 @@ export default {
       }
   },
   activated () {
-      // 用keep-alive包裹的，会多activated与deactivated生命周期函数，每次进入出去都会执行的一个钩子函数
+      // 用keep-alive包裹的，会多activated与deactivated生命周期函数，每次页面展示、隐藏时都会执行的2个钩子函数   mounted是只会执行一次，第一次会执行，后来因为keep-alive 缓存了，不会执行
      window.addEventListener('scroll', this.handleScroll, true)
   },
   deactivated () {

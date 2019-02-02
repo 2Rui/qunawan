@@ -1,36 +1,50 @@
 <template>
     <div>
         <detail-header></detail-header>
-        <detail-banner :swipers="imgs"></detail-banner>
-        <div class="cont"></div>
+        <detail-banner :swipers="gallaryImgs" :img="bannerImg" :title="sightName"></detail-banner>
+        <detail-list :list="categoryList"></detail-list>
     </div>
 </template>
 
 <script>
 import DetailBanner from './components/Banner'
 import DetailHeader from './components/Header'
+import DetailList from './components/List'
 import axios from 'axios'
 export default {
   name: 'Detail',
   components: {
       DetailBanner,
-      DetailHeader
+      DetailHeader,
+      DetailList
   },
   data () {
       return {
-          imgs: []
+          gallaryImgs: [],
+          categoryList: [],
+          bannerImg: '',
+          sightName: ''
       }
   },
   mounted () {
+      // 当前组件所在点的路由对象 包括fullPath: "/detail/0001" name: "Detail" params: {id: "0001"} path: "/detail/0001" query: {}
+      console.log(this.$route.id)
       this.getBannerInfo()
   },
   methods: {
       getBannerInfo () {
-          axios.get('/api/detail.json').then(this.getBannerInfoSucc)
+          axios.get('/api/detail.json', {
+              params: {
+                id: this.$route.params.id
+              }
+          }).then(this.getBannerInfoSucc)
       },
       getBannerInfoSucc (res) {
-          console.log(res)
-         this.imgs = res.data.data.gallaryImgs
+         const data = res.data.data
+         this.categoryList = data.categoryList
+         this.gallaryImgs = data.gallaryImgs
+         this.bannerImg = data.bannerImg
+         this.sightName = data.sightName
       }
   }
 
@@ -41,6 +55,5 @@ export default {
    .cont
     width:100%
     height:70rem
-    background:pink
 </style>
 

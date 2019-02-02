@@ -1,10 +1,10 @@
 <template>
     <div>
     <div class="cont" @click="clickBanner">
-      <img src="http://img1.qunarzz.com/sight/p0/201404/23/04b92c99462687fa1ba45c1b5ba4ad77.jpg_600x330_bf9c4904.jpg"/>
+      <img :src="img"/>
       <div class="info">
-          <p class="title">大连圣亚海洋世界</p>
-          <div class="num"><span class="iconfont icon">&#xe67b;</span>39</div>
+          <p class="title">{{title}}</p>
+          <div class="num"><span class="iconfont icon">&#xe67b;</span>{{swipers.length}}</div>
       </div>
     </div>
     <gallary :swiper="swipers" v-if="isGallary" @changeGallay="closeGallay"></gallary>
@@ -16,7 +16,9 @@ import Gallary from '../../../commonn/gallary/Gallary'
 export default {
   name: 'DetailBanner',
   props: {
-      swipers: Array
+      swipers: Array,
+      img: String,
+      title: String
   },
   data () {
       return {
