@@ -34,6 +34,7 @@ export default {
       city: Object
   },
   mounted () {
+      console.log('mounted')
       // document.querySelector('.container')
       this.scroll = new BScroll(this.$refs.container)
       // 监听右侧字母表到兄弟传来的事件

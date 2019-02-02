@@ -24,19 +24,23 @@ export default {
       }
   },
   activated () {
-      // 用keep-alive包裹的，每次进入都会执行的一个钩子函数
+      // 用keep-alive包裹的，会多activated与deactivated生命周期函数，每次进入出去都会执行的一个钩子函数
      window.addEventListener('scroll', this.handleScroll, true)
+  },
+  deactivated () {
+     window.removeEventListener('scroll')
   },
   methods: {
       handleScroll () {
           const top = document.documentElement.scrollTop
+          console.log(top)
           if (top > 60) {
            this.showAbs = false
            if (top < 140) {
              const opacity = top / 140
-             this.styobj = {opacity:opacity}
+             this.styobj = {opacity: opacity}
            }
-          }else {
+          } else {
            this.showAbs = true
           }
       }
