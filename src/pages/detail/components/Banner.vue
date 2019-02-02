@@ -7,12 +7,15 @@
           <div class="num"><span class="iconfont icon">&#xe67b;</span>{{swipers.length}}</div>
       </div>
     </div>
+   <fade>
     <gallary :swiper="swipers" v-if="isGallary" @changeGallay="closeGallay"></gallary>
+    </fade>
     </div>
 </template>
 
 <script>
-import Gallary from '../../../commonn/gallary/Gallary'
+import Gallary from '@common/gallary/Gallary'
+import Fade from '@common/fade/Fade'
 export default {
   name: 'DetailBanner',
   props: {
@@ -26,7 +29,8 @@ export default {
       }
   },
   components: {
-      Gallary
+      Gallary,
+      Fade
   },
   methods: {
       clickBanner () {

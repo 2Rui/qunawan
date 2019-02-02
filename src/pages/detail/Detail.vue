@@ -28,7 +28,7 @@ export default {
   },
   mounted () {
       // 当前组件所在点的路由对象 包括fullPath: "/detail/0001" name: "Detail" params: {id: "0001"} path: "/detail/0001" query: {}
-      console.log(this.$route.id)
+      console.log(this.$route.params.id)
       this.getBannerInfo()
   },
   methods: {
