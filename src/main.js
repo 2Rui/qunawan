@@ -16,6 +16,9 @@ Vue.config.productionTip = false
 FastClick.attach(document.body)
 Vue.use(VueAwesomeSwiper)
 Vue.prototype.bus = new Vue()
+var htmlWidth = document.documentElement.clientWidth || document.body.clientWidth
+var htmlDom = document.getElementsByTagName('html')[0]
+htmlDom.style.fontSize = htmlWidth / 10 + 'px'
 
 /* eslint-disable no-new */
 new Vue({

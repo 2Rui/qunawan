@@ -79,8 +79,8 @@ export default {
         bottom:0
         text-align:center
         color:$darkTextColor
-        height:.44rem
-        line-height:.44rem
+        height:px2rem(37.5)
+        line-height:px2rem(37.5)
         ellipsis()
 </style>
 

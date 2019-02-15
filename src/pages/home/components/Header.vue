@@ -20,10 +20,11 @@ export default {
 
 <style lang="stylus" scoped>
 @import '~@styles/varibles.styl'
+@import '~@styles/mixins.styl'
 .header-cont
     width:100%
-    line-height:$headerHeight
-    height:$headerHeight
+    line-height:px2rem(86)
+    height:px2rem(86)
     background:#eee
     display:flex
     felx-direction:row
@@ -32,9 +33,9 @@ export default {
     .header-input
        flex:1
        background:#fff
-       height:.64rem
+       height:.84rem
        border-radius:0.1rem
-       line-height:.64rem
+       line-height:.84rem
        margin-top:0.12rem
        margin-left:.2rem
        color:#ccc

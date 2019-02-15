@@ -3,7 +3,7 @@
       <city-header></city-header>
       <city-search  :city="cities"></city-search>
       <city-list :hot="hotCities" :city="cities"></city-list>
-      <city-alp :alps="alphabet"></city-alp>
+      <city-alp :alps="alphabet" v-show="isShow"></city-alp>
     </div>
 </template>
 
@@ -25,7 +25,8 @@ export default {
   data () {
     return {
       hotCities: [],
-      cities: {}
+      cities: {},
+      isShow: false
     }
   },
   mounted () {
