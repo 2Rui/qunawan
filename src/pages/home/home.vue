@@ -46,12 +46,13 @@ export default {
       // axios.get('/api/index.json').then(this.getHomeInfoSucc)
     },
     getHomeInfoSucc (res) {
-      console.log(res)
-      var data = res.data.data
-      this.swiperList = data.swiperList
-      this.iconList = data.iconList
-      this.weekendList = data.weekendList
-      this.recommendList = data.recommendList
+      // endLoading()
+      var data0 = res.data
+      console.log(data0)
+      this.swiperList = data0.swiperList
+      this.iconList = data0.iconList
+      this.weekendList = data0.weekendList
+      this.recommendList = data0.recommendList
      // 处理返回的数据 axios请求返回的时promise对象，所有用then接收，传递一个回调函数作为参数
     }
   }

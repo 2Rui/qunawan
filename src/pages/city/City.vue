@@ -26,7 +26,7 @@ export default {
     return {
       hotCities: [],
       cities: {},
-      isShow: false
+      isShow: true
     }
   },
   mounted () {
